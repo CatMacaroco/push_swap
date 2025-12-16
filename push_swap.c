@@ -1,84 +1,50 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/03 17:10:25 by cmacaroc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// /* ************************************************************************** */
+// /*                                                                            */
+// /*                                                        :::      ::::::::   */
+// /*   push_swap.c                                        :+:      :+:    :+:   */
+// /*                                                    +:+ +:+         +:+     */
+// /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
+// /*                                                +#+#+#+#+#+   +#+           */
+// /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
+// /*   Updated: 2025/12/03 17:10:25 by cmacaroc         ###   ########.fr       */
+// /*                                                                            */
+// /* ************************************************************************** */
 
-#include "push_swap.h"
+ #include "push_swap.h"
+ #include <stdlib.h>
+ #include <stdio.h>
 
-typedef struct s_stack {
-    int *arr;
-    int top;
-    int capacity;
-} t_stack;
-
-void swap_a(int ac, char *av[])
+int main()
 {
-	int temp;
-	
-	if(ac == 3)
-	{
-		temp = av[1][0];
-		av[1][0] = av[1][1];
-		av[1][1] = temp;
-	}
-	write(1, "Error\n", 6);
+
+	t_list *begin_list;
+	begin_list = malloc(sizeof(t_list));
+	if(!begin_list)
+		return(NULL);
+	begin_list->data = 3;
+	begin_list->next = NULL;
+
+	t_list *begin_list_second;
+	begin_list_second = malloc(sizeof(t_list));
+	if(!begin_list_second)
+		return(NULL);
+	begin_list_second->data = 7;
+	begin_list_second->next = NULL;
+	begin_list->next = begin_list_second;
+
+
+	t_list *begin_list_third;
+	begin_list_third = malloc(sizeof(t_list));
+	if(!begin_list_third)
+		return NULL;
+	begin_list_third->data = 8;
+	begin_list_third->next = NULL;
+	begin_list->next->next = begin_list_third;
 }
 
-void swap_b(int ac, char *av[])
-{
-	int temp;
-	
-	if(ac == 3)
-	{
-		temp = av[2][0];
-		av[2][0] = av[2][1];
-		av[2][1] = temp;
-	}
-	write(1, "Error\n", 6);
-}
 
-void swap_a_b(int ac, char *av[])
-{
-	int temp1;
-	int temp2;
-	
-	if(ac == 3)
-	{
-		temp1 = av[2][0];
-		av[2][0] = av[2][1];
-		av[2][1] = temp1;
-		
-		temp2 = av[2][0];
-		av[2][0] = av[2][1];
-		av[2][1] = temp2;
-	}
-	write(1, "Error\n", 6);
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	int i;
-	
-	if(b->top < 0)
-		return;
-
-	i = a->top;
-	
-	while(i >= 0)
-	{
-		a->arr[i + 1] = a->arr[i];
-		i--;
-	}
-
-	a->arr[0] = b->arr[b->top];
-
-	a->top++;
-	b->top--;
-}
+typedef struct node {
+    int *data;
+    int index;
+    struct node *next;
+} 			  t_list;

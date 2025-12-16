@@ -1,28 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   command_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/16 18:50:30 by cmacaroc         ###   ########.fr       */
+/*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
+/*   Updated: 2025/12/16 18:55:45 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-#pragma once
-
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-typedef struct node {
-    int *data;
-    int index;
-    struct node *next;
-} 			  t_list;
-
-t_list *a = NULL;
-t_list *b = NULL;
+#include "push_swap.h"
