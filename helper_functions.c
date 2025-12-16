@@ -30,8 +30,8 @@ int ft_atoi(char *s)
 	return(nb * sign);
 }
 
-int ft_error(int nb)
+void ft_error()
 {
-	
-	return(1);
+	ft_putstr("ERROR\n");
+	return;
 }
