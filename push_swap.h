@@ -6,13 +6,9 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/16 18:50:30 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/16 20:25:30 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
-
-#pragma once
 
 #include <unistd.h>
 #include <stdlib.h>
