@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/19 18:00:02 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/20 12:35:06 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void rrb(t_list **b, int print)
 	t_list *last; 
 	t_list *second_last;
 	
-	if(!b || !*b || (*b)->next = NULL)
+	if(!b || !*b || (*b)->next == NULL)
 		return;
 
 	first = *b;
