@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   parsing&validation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/20 13:48:08 by cmacaroc         ###   ########.fr       */
+/*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
+/*   Updated: 2025/12/20 13:37:41 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <limits.h>
+#include "push_swap.h"
 
-typedef struct node {
-    int *data;
-    int index;
-    struct node *next;
-} 			  t_list;
-
-t_list *a = NULL;
-t_list *b = NULL;
+t_list *parse_args(int ac, char *av[])
+{
+	
+}
