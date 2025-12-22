@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:00:53 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 15:48:15 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 15:52:35 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void check_error(char *str)
 {
-	int i = 0;
-
+	int i;
+	
+	i = 0;
 	if(!str || !str[0])
+	{
+		ft_error();
+		exit(EXIT_FAILURE);
+	}
+	if(str[i] == '+' || str[i] == '-')
+		i++;
+	if(str[i] < '0' || str[i] > '9')
 	{
 		ft_error();
 		exit(EXIT_FAILURE);
