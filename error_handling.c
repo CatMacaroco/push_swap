@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:00:53 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 15:52:35 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:33:24 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,32 @@ void check_error(char *str)
 	if(!str || !str[0])
 	{
 		ft_error();
-		exit(EXIT_FAILURE);
 	}
 	if(str[i] == '+' || str[i] == '-')
 		i++;
-	if(str[i] < '0' || str[i] > '9')
-	{
+	if(str[i] == '\0')
 		ft_error();
-		exit(EXIT_FAILURE);
-	}
 	while(str[i])
 	{
 		if(str[i] < '0' || str[i] > '9')
 		{
 			ft_error();
-			exit(EXIT_FAILURE);
 		}
 		i++;
 	}	
 }
 
-void check_duplicates(t_list *stack)
+void check_duplicates(t_list *head)
 {
-	
+	t_list *temp;
+
+	temp = head;
+	while(temp)
+	{
+		if(temp->data == temp->next->data)
+		{
+			ft_error();
+		}
+		temp = temp->next;
+	}
 }

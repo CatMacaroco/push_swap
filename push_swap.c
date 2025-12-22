@@ -6,15 +6,11 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/16 20:23:01 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:00:12 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-typedef struct node {
-    int *data;
-    int index;
-    struct node *next;
-} 			  t_list;
+char **split = ft_split(av[1], ' ');

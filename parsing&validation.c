@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 15:07:21 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:55:33 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ t_list *parse_args(int ac, char *av[])
 {
 	int i = 0;
 	
-	if(ac > 2)
-	{
-		
+	while(ac > 1)
+	{	
+		ac--;
 	}
 	ft_error();
 }
@@ -49,15 +49,15 @@ int ft_atoi(char *s)
 	return(nb * sign);
 }
 
-long ft_atol(const char *str, int *error)
+long ft_atol(const char *str)
 {
-	long result = 0;
-	int sign = 1;
-	int i = 0;
-	int digit;
-	
-	*error = 0;
+	long result;
+	int sign;
+	int i;
 
+	result = 0;
+	sign = 1;
+	i = 0;
 	while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if(str[i] == '+' || str[i] == '-')
@@ -73,21 +73,16 @@ long ft_atol(const char *str, int *error)
 		i++;
 	}
 	if(str[i] < '0' || str[i] > '9')
-		return(*error = 1, 0);
+		ft_error();
 	while(str[i] >= '0' && str[i] <= '9')
 	{
-		digit = str[i] - '0';
-
-		if(sign == 1 && (result > (INT_MAX - digit) / 10))
-			return(*error = 1, 0);
-		if(sign == -1 && (-result < (INT_MIN + digit) / 10))
-			return(*error = 1, 0);
-
-		result = result * 10 + digit;
+		if (str[i] < INT_MIN || str[i] > INT_MAX)
+			ft_error();
 		i++;
 	}
 	if(str[i] != '\0')
-		return(*error = 1, 0);
+		ft_error();
 
 	return(result * sign);
 }
+

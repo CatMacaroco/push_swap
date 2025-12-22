@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 14:20:18 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:59:44 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void sb(t_list **b, int print);
 void ss(t_list **a, t_list **b, int print);
 void ft_putstr(char *str);
 void ft_putnbr(int nb);
-int ft_atoi(char *s);
 void ft_error();
+long ft_atol(const char *str);
 t_list *lstnew(void *data);
 void add_front_a(t_list **a, t_list *new);
 void add_front_b(t_list **b, t_list *new);
@@ -50,3 +50,7 @@ int lstsize_a(t_list *a);
 int lstsize_b(t_list *b);
 void lstclear_a(t_list **a, void(*del)(void*));
 void lstclear_b(t_list **b, void(*del)(void*));
+static char	**ft_split(char const *s, char c);
+static char	**ft_free(char **result, size_t count);
+static char	*word_dup(const char *start, size_t len);
+static size_t	num_words(char const *s, char c);

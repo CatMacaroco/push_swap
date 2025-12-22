@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 14:33:07 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:36:25 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,6 @@ void ft_putnbr(int nb)
 	write(1, &c, 1);
 }
 
-int ft_atoi(char *s)
-{
-	int nb = 0;
-	int i = 0;
-	int sign = 1;
-
-	while(s[i] == ' ' || s[i] == 9)
-		i++;
-	if(s[i] == '+' || s[i] == '-')
-	{
-		if(s[i] == '-')
-			sign = -sign;
-		i++;
-	}
-	while(s[i] >= '0' && s[i] <= '9')
-	{
-		nb = nb * 10 + (s[i] - '0');
-		i++;
-	}
-	return(nb * sign);
-}
 
 void ft_error()
 {
@@ -59,7 +38,7 @@ void ft_error()
 	return;
 }
 
-size_t	num_words(char const *s, char c)
+static size_t	num_words(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -85,7 +64,7 @@ size_t	num_words(char const *s, char c)
 	return (count);
 }
 
-char	*word_dup(const char *start, size_t len)
+static char	*word_dup(const char *start, size_t len)
 {
 	size_t	i;
 	char	*substr;
@@ -103,7 +82,7 @@ char	*word_dup(const char *start, size_t len)
 	return (substr);
 }
 
-char	**ft_free(char **result, size_t count)
+static char	**ft_free(char **result, size_t count)
 {
 	while (count > 0)
 		free(result[--count]);
@@ -112,7 +91,7 @@ char	**ft_free(char **result, size_t count)
 }
 
 
-char	**ft_split(char const *s, char c)
+static char	**ft_split(char const *s, char c)
 {
 	size_t	i;
 	size_t	j;

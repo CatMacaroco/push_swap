@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/16 19:30:19 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 16:50:18 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void sa(t_list **a, int print)
 
 	if(print)
 		ft_putstr("sa\n");
-		
-	
 }
 
 void sb(t_list **b, int print)
@@ -52,5 +50,8 @@ void ss(t_list **a, t_list **b, int print)
 {
 	sa(&a, 0);
 	sb(&b, 0);
+
+	if(print)
+		ft_putstr("ss\n");
 }
 
