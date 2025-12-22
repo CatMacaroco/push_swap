@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/20 15:04:10 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/22 14:33:07 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,49 +55,91 @@ int ft_atoi(char *s)
 
 void ft_error()
 {
-	ft_putstr("ERROR\n");
+	ft_putstr("Error\n");
 	return;
 }
 
-long ft_atol(const char *str, int *error)
+size_t	num_words(char const *s, char c)
 {
-	long result = 0;
-	int sign = 1;
-	int i = 0;
-	int digit;
-	
-	*error = 0;
+	size_t	count;
+	size_t	i;
 
-	while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if(str[i] == '+' || str[i] == '-')
+	count = 0;
+	i = 0;
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
 	{
-		if(str[i] == '-')
-			sign = -sign;
-		i++;
+		while (s[i] == c)
+		{
+			i++;
+		}
+		if (s[i] == '\0')
+		{
+			break ;
+		}
+		count++;
+		while (s[i] != c && s[i] != '\0')
+			i++;
 	}
-	if(str[i] == '+' || str[i] == '-')
-	{
-		if(str[i] == '-')
-			sign = -sign;
-		i++;
-	}
-	if(str[i] < '0' || str[i] > '9')
-		return(*error = 1, 0);
-	while(str[i] >= '0' && str[i] <= '9')
-	{
-		digit = str[i] - '0';
-
-		if(sign == 1 && (result > (INT_MAX - digit) / 10))
-			return(*error = 1, 0);
-		if(sign == -1 && (-result < (INT_MIN + digit) / 10))
-			return(*error = 1, 0);
-
-		result = result * 10 + digit;
-		i++;
-	}
-	if(str[i] != '\0')
-		return(*error = 1, 0);
-
-	return(result * sign);
+	return (count);
 }
+
+char	*word_dup(const char *start, size_t len)
+{
+	size_t	i;
+	char	*substr;
+
+	i = 0;
+	substr = (char *)malloc(len + 1);
+	if (!substr)
+		return (NULL);
+	while (i < len)
+	{
+		substr[i] = start[i];
+		i++;
+	}
+	substr[len] = '\0';
+	return (substr);
+}
+
+char	**ft_free(char **result, size_t count)
+{
+	while (count > 0)
+		free(result[--count]);
+	free(result);
+	return (NULL);
+}
+
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	size_t	count;
+	char	**result;
+
+	i = 0;
+	k = 0;
+	count = num_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!s || !result)
+		return (NULL);
+	while (s[i] != '\0' && k < count)
+	{
+		while (s[i] == c)
+			i++;
+		j = i;
+		while (s[i] != '\0' && s[i] != c)
+			i++;
+		result[k++] = word_dup(&s[j], i - j);
+		if (!result[k - 1])
+			return (ft_free(result, k - 1));
+	}
+	result[k] = NULL;
+	return (result);
+}
+
+
+

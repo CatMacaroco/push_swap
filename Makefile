@@ -1,5 +1,7 @@
 NAME = push_swap.a
-SOURCES = push_swap.c lll.c
+SOURCES = push_swap.c command_push.c command_revese.c command_rotate.c \
+command_swap.c helper_functions.c list_functions.c parsing&validation.c \
+size_of_a.c
 OBJECTS = $(SOURCES:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
