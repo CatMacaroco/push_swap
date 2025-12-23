@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/23 11:52:49 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:08:36 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void add_back(t_list **head, t_list *new)
 	t_list *temp;
 
 	temp = *head;
-
 	if(!new || !head)
 		return;
 	if(*head == NULL)
@@ -55,8 +54,9 @@ void add_back(t_list **head, t_list *new)
 
 int lstsize(t_list *head)
 {
-	int count = 0;
-
+	int count;
+	
+	count = 0;
 	while(head != NULL)
 	{	
 		count++;
