@@ -6,11 +6,15 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 17:00:12 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:03:16 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
+void ft_push_swap()
+{
+	
+}
 char **split = ft_split(av[1], ' ');
+

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_functions.c                                   :+:      :+:    :+:   */
+/*   list_functions_1.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 16:51:40 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/23 11:52:49 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,25 @@ t_list *lstnew(void *data)
 	return(things);
 }
 
-void add_front_a(t_list **a, t_list *new)
+void add_front(t_list **head, t_list *new)
 {
 	if(!new)
 		return;
-	new->next = *a;
-	*a = new;
+	new->next = *head;
+	*head = new;
 }
 
-void add_front_b(t_list **b, t_list *new)
-{
-	if(!new)
-		return;
-	new->next = *b;
-	*b = new;
-}
-
-void add_back_a(t_list **a, t_list *new)
+void add_back(t_list **head, t_list *new)
 {
 	t_list *temp;
 
-	temp = *a;
+	temp = *head;
 
-	if(!new || !a)
+	if(!new || !head)
 		return;
-	if(*a == NULL)
+	if(*head == NULL)
 	{
-		*a = new;
+		*head = new;
 		return;
 	}
 	while(temp->next != NULL)
@@ -61,23 +53,28 @@ void add_back_a(t_list **a, t_list *new)
 	temp->next = new;
 }
 
-void add_back_b(t_list **b, t_list *new)
+int lstsize(t_list *head)
+{
+	int count = 0;
+
+	while(head != NULL)
+	{	
+		count++;
+		head = head->next;
+	}
+	return(count);
+}
+
+void lstclear(t_list **head, void(*del)(void*))
 {
 	t_list *temp;
 
-	temp = *b;
-
-	if(!new || !b)
+	if(!head || !*head)
 		return;
-	if(*b == NULL)
+	while(*head != NULL)
 	{
-		*b = new;
-		return;
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
 	}
-	while(temp->next != NULL)
-	{
-		temp = temp->next;
-	}
-	temp->next = new;
 }
-

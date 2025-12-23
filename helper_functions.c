@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 16:36:25 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:05:15 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,103 +22,47 @@ void ft_putstr(char *str)
 	}
 }
 
-void ft_putnbr(int nb)
-{
-	char c;
-	if(nb > 9)
-		ft_putnbr(nb/10);
-	c = nb % 10 + '0';
-	write(1, &c, 1);
-}
-
-
 void ft_error()
 {
 	ft_putstr("Error\n");
 	return;
 }
 
-static size_t	num_words(char const *s, char c)
+long ft_atol(const char *str)
 {
-	size_t	count;
-	size_t	i;
+	long result;
+	int sign;
+	int i;
 
-	count = 0;
+	result = 0;
+	sign = 1;
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != '\0')
+	while(str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if(str[i] == '+' || str[i] == '-')
 	{
-		while (s[i] == c)
-		{
-			i++;
-		}
-		if (s[i] == '\0')
-		{
-			break ;
-		}
-		count++;
-		while (s[i] != c && s[i] != '\0')
-			i++;
-	}
-	return (count);
-}
-
-static char	*word_dup(const char *start, size_t len)
-{
-	size_t	i;
-	char	*substr;
-
-	i = 0;
-	substr = (char *)malloc(len + 1);
-	if (!substr)
-		return (NULL);
-	while (i < len)
-	{
-		substr[i] = start[i];
+		if(str[i] == '-')
+			sign = -sign;
 		i++;
 	}
-	substr[len] = '\0';
-	return (substr);
-}
-
-static char	**ft_free(char **result, size_t count)
-{
-	while (count > 0)
-		free(result[--count]);
-	free(result);
-	return (NULL);
-}
-
-
-static char	**ft_split(char const *s, char c)
-{
-	size_t	i;
-	size_t	j;
-	size_t	k;
-	size_t	count;
-	char	**result;
-
-	i = 0;
-	k = 0;
-	count = num_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (count + 1));
-	if (!s || !result)
-		return (NULL);
-	while (s[i] != '\0' && k < count)
+	if(str[i] < '0' || str[i] > '9')
+		ft_error();
+	while(str[i] >= '0' && str[i] <= '9')
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
-		while (s[i] != '\0' && s[i] != c)
-			i++;
-		result[k++] = word_dup(&s[j], i - j);
-		if (!result[k - 1])
-			return (ft_free(result, k - 1));
+		result = result * 10 +(str[i] - '0');
+		i++;
 	}
-	result[k] = NULL;
-	return (result);
+	if(str[i] != '\0')
+		ft_error();
+	return(result * sign);
 }
 
-
-
+int is_valid(char *str)
+{
+	int i;
+	
+	i = 0;
+	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
+		return(0);
+	return(1);
+}

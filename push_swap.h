@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 16:59:44 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:36:17 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <limits.h>
 
 typedef struct node {
-    int *data;
+    int data;
     int index;
     struct node *next;
 } 			  t_list;
@@ -26,31 +26,30 @@ typedef struct node {
 t_list *a = NULL;
 t_list *b = NULL;
 
-void pa(t_list **a, t_list **b);
-void pb(t_list **a, t_list **b);
-void rra(t_list **a, int print);
-void rrb(t_list **b, int print);
-void rrr(t_list **a, t_list **b, int print);
-void ra(t_list **a, int print);
-void rb(t_list **b, int print);
-void rr(t_list **a, t_list **b, int print);
-void sa(t_list **a, int print);
-void sb(t_list **b, int print);
-void ss(t_list **a, t_list **b, int print);
-void ft_putstr(char *str);
-void ft_putnbr(int nb);
-void ft_error();
-long ft_atol(const char *str);
-t_list *lstnew(void *data);
-void add_front_a(t_list **a, t_list *new);
-void add_front_b(t_list **b, t_list *new);
-void add_back_a(t_list **a, t_list *new);
-void add_back_b(t_list **b, t_list *new);
-int lstsize_a(t_list *a);
-int lstsize_b(t_list *b);
-void lstclear_a(t_list **a, void(*del)(void*));
-void lstclear_b(t_list **b, void(*del)(void*));
-static char	**ft_split(char const *s, char c);
-static char	**ft_free(char **result, size_t count);
-static char	*word_dup(const char *start, size_t len);
+void			pa(t_list **a, t_list **b, int print);
+void			pb(t_list **a, t_list **b, int print);
+void			rra(t_list **a, int print);
+void			rrb(t_list **b, int print);
+void			rrr(t_list **a, t_list **b, int print);
+void			ra(t_list **a, int print);
+void			rb(t_list **b, int print);
+void 			rr(t_list **a, t_list **b, int print);
+void			sa(t_list **a, int print);
+void			sb(t_list **b, int print);
+void			ss(t_list **a, t_list **b, int print);
+void			ft_putstr(char *str);
+void			ft_error();
+long			ft_atol(const char *str);
+t_list			*lstnew(void *data);
+void			add_front(t_list **head, t_list *new);
+void			add_back(t_list **head, t_list *new);
+int				lstsize(t_list *head);
+void			lstclear(t_list **head, void(*del)(void*));
+static char		**ft_split(char const *s, char c);
+static char		**ft_free(char **result, size_t count);
+static char		*word_dup(const char *start, size_t len);
 static size_t	num_words(char const *s, char c);
+t_list			*parse_args(int ac, char *av[]);
+int				is_sorted(t_list *head);
+void			sort_two(t_list *lst);
+void			sort_three(t_list *lst, int print);
