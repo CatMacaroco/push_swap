@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 13:05:40 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:16:55 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,4 @@ int		is_valid_size(char *str);
 void	ft_free_split(char **str);
 void	check_error(char *str);
 int		check_duplicate(t_list *head);
+void	sort_five(t_list *a, t_list *b, int print);

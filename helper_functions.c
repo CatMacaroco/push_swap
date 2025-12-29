@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/23 17:43:29 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 14:24:20 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,15 @@ long ft_atol(const char *str)
 // }
 
 
-int is_valid_size(char *str)
-{
-	int i;
+// int is_valid_size(char *str)
+// {
+// 	int i;
 	
-	i = 0;
-	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
-		return(0);
-	return(1);
-}
+// 	i = 0;
+// 	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
+// 		return(0);
+// 	return(1);
+// }
 
 void ft_free_split(char **str)
 {

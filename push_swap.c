@@ -6,15 +6,33 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 14:19:43 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 18:25:24 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_push_swap()
+void radix_sort(t_list *a, t_list *b, int size)
 {
-	
+	int i;
+	int bit;
+
+	bit = 0;
+	while(bit < 32)
+	{
+		i = 0;
+		while(i < size)
+		{
+			if((a->index & (1 << bit)) == 0)
+				pb(a, b, 1);
+			else
+				ra(a, 1);
+			i++;
+		}
+		while(b)
+			pa(a, b, 1);
+		bit++;
+	}
 }
 
 void parsing_split(char **split, t_list **a)
@@ -39,8 +57,6 @@ void parsing_split(char **split, t_list **a)
 	}
 	ft_free_split(split);	
 }
-
-
 
 t_list *build_stack(int ac, char *av[])
 {
@@ -86,4 +102,30 @@ int is_valid_number(char *str)
 		i++;
 	}
 	return(1);
+}
+
+int main(int ac, char *av[])
+{
+	if(ac < 2)
+		return (0);
+	t_list *a;
+	t_list *b;
+
+	a = build_stack(ac, av);
+	b = NULL;
+	if(is_sorted(a))
+		return(0);
+	int size = lstsize(a);
+	if(size == 2)
+		sort_two(a);
+	if(size == 3)
+		sort_three(a, 1);
+	else if(size > 3 && size <=5)
+		sort_five(a, b, 1);
+	else
+		radix_sort(a, b, size);
+
+	lstclear(&a, free);
+	lstclear(&b, free);
+	return(0);
 }

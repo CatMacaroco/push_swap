@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 12:57:37 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 16:28:22 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,44 +25,49 @@ int is_sorted(t_list *head)
 
 void sort_two(t_list *lst)
 {
-	if(is_sorted(lst))
+	if(is_sorted(lst) || !lst || !lst->next)
 		return;
-	int temp;
-	if(!lst || !lst->next)
-		return;
-	if(lst->data > lst->next->data)
-	{
-		temp = lst->data;
-		lst->data = lst->next->data;
-		lst->next->data = temp;
-	}
-	ft_putstr("sa\n");
+	sa(lst, 1);
 }
 
 void sort_three(t_list *lst, int print)
 {
-	if(is_sorted(lst))
-		return;
-		
-	t_list *head;
-	
-	head = lst;
-	if(!lst || !lst->next)
+	if(is_sorted(lst) || !lst || !lst->next || !lst->next->next)
 		return;
 	
-	if(lst->data > lst->next->data)
-		sa(lst, 1);
-	else if(lst->data > lst->next->data && lst->data > lst->next->next->data)
-		ra(lst, 1);
-	else if(lst->data > lst->next->data && lst->next->data < lst->next->next->data)
-		ra(lst, 1);
-	else if(lst->next->data > lst->next->next->data && lst->next->data > lst->data)
+	int min_pos = find_minimum(lst);
+	if(min_pos == 1)
 	{
 		sa(lst, 1);
-		ra(lst, 1);
-	}
-	else if(lst->data < lst->next->data && lst->data > lst->next->next->data)
 		rra(lst, 1);
+	}
+	else if (min_pos == 2)
+		ra(lst, 1);
+	if(!is_sorted(lst))
+		sa(lst, 1);		
+}
+
+void sort_five(t_list *a, t_list *b, int print)
+{
+	int size;
+
+	size = lstsize(a);
+	if(is_sorted(a) || size < 3 || size > 5)
+		return;
+	while(lstsize(b) < 2)
+	{
+		int min_pos = find_minimum(a);
+		if(min_pos <= lstsize(a) / 2)
+			while(min_pos--)
+				ra(a, print);
+		else
+			while(min_pos--)
+				rra(a, print);
+		pb(a, b, print);
+	}
+	sort_three(a, print);
+	pa(a, b, print);
+	pa(a, b, print);	
 }
 
 int find_minimum(t_list *lst)
@@ -79,9 +84,9 @@ int find_minimum(t_list *lst)
 
 	while(temp != NULL)
 	{
-		if(min > temp->next->data)
+		if(min > temp->data)
 		{
-			min = temp->next->data;
+			min = temp->data;
 			min_position = position;
 		}
 		position++;
@@ -118,29 +123,5 @@ int check_duplicate(t_list *head)
 // 	}
 // }
 
-int main()
-{
-	t_list *catarina;
 
-	catarina = malloc(sizeof(t_list));
-	if(!catarina)
-		return(0);
-	catarina->data = 5;
-	catarina->next = NULL;
-	
-	t_list *cat;
-
-	cat = malloc(sizeof(t_list));
-	if(!cat)
-		return(0);
-	cat->data = 2;
-	cat->next = NULL;
-
-	catarina->next = cat;
-
-	sort_small_stack(catarina);
-	
-	printstack(catarina);
-	
-}
 
