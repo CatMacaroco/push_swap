@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/23 15:21:11 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:04:58 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static char	**ft_free(char **result, size_t count)
 	return (NULL);
 }
 
-
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -93,6 +92,3 @@ char	**ft_split(char const *s, char c)
 	result[k] = NULL;
 	return (result);
 }
-
-
-

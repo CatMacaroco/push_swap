@@ -6,22 +6,20 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/23 11:35:56 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 19:04:06 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *parse_args(int ac, char *av[])
+t_list	*parse_args(int ac, char *av[])
 {
-	int i = 0;
-	
-	while(ac > 1)
-	{	
+	int	i;
+
+	i = 0;
+	while (ac > 1)
+	{
 		ac--;
 	}
 	ft_error();
 }
-
-
-
