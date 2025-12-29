@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/23 17:31:56 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 12:57:37 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int check_duplicate(t_list *head)
 		while(temp != NULL)
 		{
 			if(head->data == temp->data)
-				return(1);
+				ft_error();
 			temp = temp->next;
 		}
 		head = head->next;

@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/22 16:49:38 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/29 12:52:10 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void pa(t_list **a, t_list **b, int print)
 	t_list *temp;
 	
 	temp = *b;
-	*b = (*b)->next; //head of b is now b->next(next node)
-	temp->next = *a; //move a to next node
-	*a = temp;			//now head of a is b.
+	*b = (*b)->next; 
+	temp->next = *a; 
+	*a = temp;
 	
 	if(print)
 		ft_putstr("pa\n");
