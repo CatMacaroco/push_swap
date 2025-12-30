@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 18:24:08 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:45:57 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,12 @@ int	main(int ac, char *av[])
 		return (0);
 	size = lstsize(a);
 	dispatch_sort(&a, b, size);
-	//printstack(a);
 	lstclear(&a, free);
 	lstclear(&b, free);
 	return (0);
 }
 
-void init_stacks(t_list **a, t_list **b, int ac, char *av[])
+void	init_stacks(t_list **a, t_list **b, int ac, char *av[])
 {
 	if (ac < 2)
 	{
