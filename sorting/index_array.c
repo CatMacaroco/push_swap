@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 16:37:03 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 19:20:51 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	*copy_data(t_list *a, int size)
 
 	array = malloc(sizeof(int) * size);
 	if (!array)
+	{
+		free(a);
 		ft_error();
+	}
 	temp = a;
 	i = 0;
 	while (temp)
