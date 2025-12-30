@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 19:11:55 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 13:37:58 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <limits.h>
 
 typedef struct node
@@ -23,9 +22,6 @@ typedef struct node
 	int			index;
 	struct node	*next;
 }	t_list;
-
-// t_list	*a = NULL;
-// t_list	*b = NULL;
 
 void	pa(t_list **a, t_list **b, int print);
 void	pb(t_list **a, t_list **b, int print);

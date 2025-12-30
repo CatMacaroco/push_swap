@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 19:11:23 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 13:36:04 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,26 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
+int	check_duplicate(t_list *head)
+{
+	t_list	*temp;
+
+	while (head != NULL)
+	{
+		temp = head->next;
+		while (temp != NULL)
+		{
+			if (head->data == temp->data)
+			{
+				return (-1);
+			}
+			temp = temp->next;
+		}
+		head = head->next;
+	}
+	return (0);
+}
+
 // int is_valid(char **str)
 // {
 // 	int i;
@@ -83,36 +103,3 @@ long	ft_atol(const char *str)
 // 	return(1);
 // }
 
-void	ft_free_split(char **str)
-{
-	int	i;
-
-	if (!str)
-		return ;
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free (str);
-	ft_error();
-}
-
-int	check_duplicate(t_list *head)
-{
-	t_list	*temp;
-
-	while (head != NULL)
-	{
-		temp = head->next;
-		while (temp != NULL)
-		{
-			if (head->data == temp->data)
-				ft_error();
-			temp = temp->next;
-		}
-		head = head->next;
-	}
-	return (0);
-}

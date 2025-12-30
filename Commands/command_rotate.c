@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 18:53:24 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 13:22:51 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	rb(t_list **b, int print)
 
 void	rr(t_list **a, t_list **b, int print)
 {
-	ra(&a, 0);
-	rb(&b, 0);
+	ra(a, 0);
+	rb(b, 0);
 	if (print)
 		ft_putstr("rr\n");
 }

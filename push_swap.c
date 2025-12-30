@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 19:03:29 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 13:33:33 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,22 @@ void	parsing_split(char **split, t_list **a)
 	i = 0;
 	if (!split || !*split)
 		return ;
-	while (split[i] != '\0')
+	while (split[i] != NULL)
 	{
 		num = ft_atol(split[i]);
-		if (num < INT_MIN || num > INT_MAX || check_duplicate(*a))
+		if (num < INT_MIN || num > INT_MAX)
 		{
 			lstclear(a, free);
 			ft_free_split(split);
 			ft_error();
 		}
 		add_back(a, lstnew((int)num));
+		if (check_duplicate(*a) == -1)
+		{
+			lstclear(a, free);
+			ft_free_split(split);
+			ft_error();
+		}
 		i++;
 	}
 	ft_free_split(split);
