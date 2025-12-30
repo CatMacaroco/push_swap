@@ -6,13 +6,13 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 18:58:27 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 16:08:15 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*lstnew(void *data)
+t_list	*lstnew(int data)
 {
 	t_list	*things;
 
@@ -68,6 +68,7 @@ void	lstclear(t_list **head, void (*del)(void*))
 {
 	t_list	*temp;
 
+	(void)del;
 	if (!head || !*head)
 		return ;
 	while (*head != NULL)

@@ -1,37 +1,27 @@
-NAME = push_swap.a
-SOURCES = push_swap.c command_push.c command_revese.c command_rotate.c \
-command_swap.c helper_functions.c list_functions.c parsing&validation.c \
-size_of_a.c helper_functions_split.c error_handling.c
+NAME = push_swap
+# SOURCES = push_swap.c command_push.c command_reverse.c command_rotate.c \
+# command_swap.c helper_functions.c list_functions.c index_array.c \
+# helper_functions_split.c error_handling.c sort_small_big.c build_stack.c
+SOURCES = $(wildcard *.c commands/*.c helper_functions/*.c sorting/*.c)
 OBJECTS = $(SOURCES:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR)
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) 
-	@make -C $(LIBFT_DIR) all
-	@cp $(LIBFT) .
-	ar rcs $(NAME) $(OBJECTS) $(LIBFT_DIR)/*.o
-
+$(NAME): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECTS)
 
 %.o: %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I. -c $< -o $@
 
 clean:
-	@make -C $(LIBFT_DIR) clean
 	rm -f $(OBJECTS)
 
 fclean:	clean
-	@make -C $(LIBFT_DIR) fclean
-	rm -f $(NAME) a.out push_swap.a
+	rm -f $(NAME) a.out
 
 re:	fclean all
-
-executable: $(NAME)
-	@$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT_DIR)/*.o -o a.out
 
 .PHONY:
 	all clean fclean re

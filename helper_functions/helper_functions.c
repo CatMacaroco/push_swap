@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 13:36:04 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:22:28 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,28 +78,4 @@ int	check_duplicate(t_list *head)
 	}
 	return (0);
 }
-
-// int is_valid(char **str)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while(str[i])
-// 	{
-// 		if(str[i] < '0' || str[i] > '9')
-// 			return(0);
-// 	}
-// 	return(1);
-// }
-//
-//
-// int is_valid_size(char *str)
-// {
-// 	int i;
-//
-// 	i = 0;
-// 	if (ft_atol(str) < INT_MIN || ft_atol(str) > INT_MAX)
-// 		return(0);
-// 	return(1);
-// }
 

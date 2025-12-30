@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 13:37:58 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:23:25 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,30 @@ void	ss(t_list **a, t_list **b, int print);
 void	ft_putstr(char *str);
 void	ft_error(void);
 long	ft_atol(const char *str);
-t_list	*lstnew(void *data);
+t_list	*lstnew(int data);
 void	add_front(t_list **head, t_list *new);
 void	add_back(t_list **head, t_list *new);
 int		lstsize(t_list *head);
 void	lstclear(t_list **head, void (*del)(void*));
 char	**ft_split(char const *s, char c);
-t_list	*parse_args(int ac, char *av[]);
 int		is_sorted(t_list *head);
-void	sort_two(t_list *lst);
-void	sort_three(t_list *lst, int print);
-int		is_valid_size(char *str);
+void	sort_two(t_list **lst);
+void	sort_three(t_list **lst);
 void	ft_free_split(char **str);
 void	check_error(char *str);
 int		check_duplicate(t_list *head);
 void	sort_five(t_list *a, t_list *b, int print);
+void	assign_index(t_list **a);
+int		find_minimum(t_list *lst);
+int		*copy_data(t_list *stack, int size);
+void	assign_indices(t_list *stack, int *sorted, int size);
+void	bubble_sort(int *array, int size);
+int		*copy_data(t_list *stack, int size);
+t_list	*handle_single_arg(char *av);
+t_list	*handle_multi_args(int ac, char *av[]);
+t_list	*build_stack(int ac, char *av[]);
+void	parsing_split(char **split, t_list **a);
+int		main(int ac, char *av[]);
+void	init_stacks(t_list **a, t_list **b, int ac, char *av[]);
+void	dispatch_sort(t_list **a, t_list *b, int size);
+//void	printstack(t_list *a);

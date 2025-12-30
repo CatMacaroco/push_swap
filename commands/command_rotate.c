@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 13:22:51 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 15:24:47 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ra(t_list **a, int print)
 	if (!a || !*a || (*a)->next == NULL)
 		return ;
 	first = *a;
-	*a = (*a)->next;
+	*a = first->next;
 	last = *a;
 	while (last->next)
 		last = last->next;

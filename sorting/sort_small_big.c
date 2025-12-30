@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/29 19:11:06 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 17:34:45 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ int	is_sorted(t_list *head)
 	return (1);
 }
 
-void	sort_two(t_list *lst)
+void	sort_two(t_list **lst)
 {
-	if (is_sorted(lst) || !lst || !lst->next)
+	if (is_sorted(*lst) || !*lst || !(*lst)->next)
 		return ;
 	sa(lst, 1);
 }
 
-void	sort_three(t_list *lst, int print)
+void	sort_three(t_list **lst)
 {
 	int	min_pos;
 
-	if (is_sorted(lst) || !lst || !lst->next || !lst->next->next)
+	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
 		return ;
-	min_pos = find_minimum(lst);
+	min_pos = find_minimum(*lst);
 	if (min_pos == 1)
 	{
 		sa(lst, 1);
@@ -44,7 +44,7 @@ void	sort_three(t_list *lst, int print)
 	}
 	else if (min_pos == 2)
 		ra(lst, 1);
-	if (!is_sorted(lst))
+	if (!is_sorted(*lst))
 		sa(lst, 1);
 }
 
@@ -61,15 +61,15 @@ void	sort_five(t_list *a, t_list *b, int print)
 		min_pos = find_minimum(a);
 		if (min_pos <= lstsize(a) / 2)
 			while (min_pos--)
-				ra(a, print);
+				ra(&a, print);
 		else
 			while (min_pos--)
-				rra(a, print);
-		pb(a, b, print);
+				rra(&a, print);
+		pb(&a, &b, print);
 	}
-	sort_three(a, print);
-	pa(a, b, print);
-	pa(a, b, print);
+	sort_three(&a);
+	pa(&a, &b, print);
+	pa(&a, &b, print);
 }
 
 int	find_minimum(t_list *lst)

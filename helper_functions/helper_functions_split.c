@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 13:36:11 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2025/12/30 15:28:47 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,4 @@ void	ft_free_split(char **str)
 		i++;
 	}
 	free (str);
-	ft_error();
 }
