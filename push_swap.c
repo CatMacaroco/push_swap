@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 18:39:02 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 19:01:31 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,13 @@ int	main(int ac, char *av[])
 	lstclear(&b, free);
 	return (0);
 }
+
+// #include <stdio.h>
+// void printstack(t_list *a)
+// {
+// 	while (a != NULL)
+// 	{
+// 		printf("%d\n", a->data);
+// 		a = a->next;
+// 	}
+// }

@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 17:49:18 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 18:56:28 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,3 @@ int	find_minimum(t_list *lst)
 	}
 	return (min_position);
 }
-
-// void printstack(t_list *a)
-// {
-// 	while (a != NULL)
-// 	{
-// 		printf("%d\n", a->data);
-// 		a = a->next;
-// 	}
-// }
