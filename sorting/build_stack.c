@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 17:37:22 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 18:33:56 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,17 @@ void	parsing_split(char **split, t_list **a)
 		i++;
 	}
 	ft_free_split(split);
+}
+
+void	init_stacks(t_list **a, t_list **b, int ac, char *av[])
+{
+	if (ac < 2)
+	{
+		*a = NULL;
+		*b = NULL;
+		return ;
+	}
+	*a = build_stack(ac, av);
+	*b = NULL;
+	assign_index(a);
 }
