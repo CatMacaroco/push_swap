@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 17:37:10 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 18:39:02 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	radix_sort(t_list **a, t_list **b, int size)
 	}
 }
 
-void	dispatch_sort(t_list **a, t_list **b, int size)
+void	sort_sort(t_list **a, t_list **b, int size)
 {
 	if (is_sorted(*a))
 		return ;
@@ -63,7 +63,7 @@ int	main(int ac, char *av[])
 	if (!a)
 		return (0);
 	size = lstsize(a);
-	dispatch_sort(&a, &b, size);
+	sort_sort(&a, &b, size);
 	lstclear(&a, free);
 	lstclear(&b, free);
 	return (0);

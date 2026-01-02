@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 13:47:27 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 18:39:10 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ t_list	*build_stack(int ac, char *av[]);
 void	parsing_split(char **split, t_list **a);
 int		main(int ac, char *av[]);
 void	init_stacks(t_list **a, t_list **b, int ac, char *av[]);
-void	dispatch_sort(t_list **a, t_list **b, int size);
+void	sort_sort(t_list **a, t_list **b, int size);
 void	radix_sort(t_list **a, t_list **b, int size);
 //void	printstack(t_list *a);
