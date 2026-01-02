@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 18:23:25 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 13:47:27 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_three(t_list **lst);
 void	ft_free_split(char **str);
 void	check_error(char *str);
 int		check_duplicate(t_list *head);
-void	sort_five(t_list *a, t_list *b, int print);
+void	sort_five(t_list **a, t_list **b, int print);
 void	assign_index(t_list **a);
 int		find_minimum(t_list *lst);
 int		*copy_data(t_list *stack, int size);
@@ -62,5 +62,6 @@ t_list	*build_stack(int ac, char *av[]);
 void	parsing_split(char **split, t_list **a);
 int		main(int ac, char *av[]);
 void	init_stacks(t_list **a, t_list **b, int ac, char *av[]);
-void	dispatch_sort(t_list **a, t_list *b, int size);
+void	dispatch_sort(t_list **a, t_list **b, int size);
+void	radix_sort(t_list **a, t_list **b, int size);
 //void	printstack(t_list *a);

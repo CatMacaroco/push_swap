@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 17:34:45 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 16:32:33 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,44 +32,60 @@ void	sort_two(t_list **lst)
 
 void	sort_three(t_list **lst)
 {
-	int	min_pos;
+	int	first;
+	int	second;
+	int	third;
 
-	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
-		return ;
-	min_pos = find_minimum(*lst);
-	if (min_pos == 1)
+	if(is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
+		return;
+	first = (*lst)->data;
+	second = (*lst)->next->data;
+	third = (*lst)->next->next->data;
+	if (first > second && second > third)
 	{
 		sa(lst, 1);
 		rra(lst, 1);
 	}
-	else if (min_pos == 2)
+	else if (first > second && first > third)
 		ra(lst, 1);
-	if (!is_sorted(*lst))
+	else if (second > first && second > third)
+		rra(lst, 1);
+	else if (first > second)
 		sa(lst, 1);
+	else
+	{
+		sa(lst, 1);
+		ra(lst, 1);
+	}
 }
 
-void	sort_five(t_list *a, t_list *b, int print)
+void	sort_five(t_list **a, t_list **b, int print)
 {
-	int	size;
 	int	min_pos;
+	int rotations;
 
-	size = lstsize(a);
-	if (is_sorted(a) || size < 3 || size > 5)
+	if (is_sorted(*a) || lstsize(*a) < 4)
 		return ;
-	while (lstsize(b) < 2)
+	while (lstsize(*b) < 2)
 	{
-		min_pos = find_minimum(a);
-		if (min_pos <= lstsize(a) / 2)
-			while (min_pos--)
-				ra(&a, print);
+		min_pos = find_minimum(*a);
+		if (min_pos <= lstsize(*a) / 2)
+		{
+			rotations = min_pos;
+			while (rotations-- > 0)
+				ra(a, print);
+		}
 		else
-			while (min_pos--)
-				rra(&a, print);
-		pb(&a, &b, print);
+		{
+			rotations = lstsize(*a) - min_pos;
+			while (rotations-- > 0)
+				rra(a, print);
+		}
+		pb(a, b, print);
 	}
-	sort_three(&a);
-	pa(&a, &b, print);
-	pa(&a, &b, print);
+	sort_three(a);
+	pa(a, b, print);
+	pa(a, b, print);
 }
 
 int	find_minimum(t_list *lst)
@@ -79,6 +95,8 @@ int	find_minimum(t_list *lst)
 	int		min_position;
 	t_list	*temp;
 
+	if (!lst)
+		return (0);
 	min_position = 0;
 	temp = lst;
 	position = 0;

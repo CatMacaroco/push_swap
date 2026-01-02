@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 18:46:21 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 13:24:00 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_putstr(char *str)
 void	ft_error(void)
 {
 	ft_putstr("Error\n");
-	return ;
+	exit (1);
 }
 
 long	ft_atol(const char *str)

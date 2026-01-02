@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 19:20:51 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 13:13:46 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	bubble_sort(int *array, int size)
 	i = 0;
 	while (i < size - 1)
 	{
-		j = i + 1;
-		while (j < size)
+		j = 0;
+		while (j < size - i - 1)
 		{
-			if (array[i] > array[j])
+			if (array[j] > array[j + 1])
 			{
-				swap = array[i];
-				array[i] = array[j];
-				array[j] = swap;
+				swap = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = swap;
 			}
 			j++;
 		}
@@ -58,12 +58,12 @@ void	bubble_sort(int *array, int size)
 	}
 }
 
-void	assign_indices(t_list *stack, int *array, int size)
+void	assign_indices(t_list *a, int *array, int size)
 {
 	t_list	*temp;
 	int		i;
 
-	temp = stack;
+	temp = a;
 	while (temp)
 	{
 		i = 0;
