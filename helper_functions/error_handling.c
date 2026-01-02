@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:00:53 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 15:16:43 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:30:19 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,30 @@ int	is_valid_number(char *str)
 		i++;
 	}
 	return (1);
+}
+
+int	check_duplicate(t_list *head)
+{
+	t_list	*temp;
+
+	while (head != NULL)
+	{
+		temp = head->next;
+		while (temp != NULL)
+		{
+			if (head->data == temp->data)
+			{
+				return (-1);
+			}
+			temp = temp->next;
+		}
+		head = head->next;
+	}
+	return (0);
+}
+
+void	ft_error(void)
+{
+	ft_putstr("Error\n");
+	exit (1);
 }

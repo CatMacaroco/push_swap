@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2025/12/30 18:47:03 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:37:22 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,33 @@ t_list	*build_stack(int ac, char *av[])
 	if (ac == 2)
 		return (handle_single_arg(av[1]));
 	return (handle_multi_args(ac, av));
+}
+
+void	parsing_split(char **split, t_list **a)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	if (!split || !*split)
+		return ;
+	while (split[i] != NULL)
+	{
+		num = ft_atol(split[i]);
+		if (num < INT_MIN || num > INT_MAX)
+		{
+			lstclear(a, free);
+			ft_free_split(split);
+			ft_error();
+		}
+		add_back(a, lstnew((int)num));
+		if (check_duplicate(*a) == -1)
+		{
+			lstclear(a, free);
+			ft_free_split(split);
+			ft_error();
+		}
+		i++;
+	}
+	ft_free_split(split);
 }

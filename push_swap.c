@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 13:44:23 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:37:10 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,18 @@ void	radix_sort(t_list **a, t_list **b, int size)
 	}
 }
 
-void	parsing_split(char **split, t_list **a)
+void	dispatch_sort(t_list **a, t_list **b, int size)
 {
-	int		i;
-	long	num;
-
-	i = 0;
-	if (!split || !*split)
+	if (is_sorted(*a))
 		return ;
-	while (split[i] != NULL)
-	{
-		num = ft_atol(split[i]);
-		if (num < INT_MIN || num > INT_MAX)
-		{
-			lstclear(a, free);
-			ft_free_split(split);
-			ft_error();
-		}
-		add_back(a, lstnew((int)num));
-		if (check_duplicate(*a) == -1)
-		{
-			lstclear(a, free);
-			ft_free_split(split);
-			ft_error();
-		}
-		i++;
-	}
-	ft_free_split(split);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else if (size > 3 && size <= 5)
+		sort_five(a, b, 1);
+	else
+		radix_sort(a, b, size);
 }
 
 int	main(int ac, char *av[])
@@ -82,31 +67,4 @@ int	main(int ac, char *av[])
 	lstclear(&a, free);
 	lstclear(&b, free);
 	return (0);
-}
-
-void	init_stacks(t_list **a, t_list **b, int ac, char *av[])
-{
-	if (ac < 2)
-	{
-		*a = NULL;
-		*b = NULL;
-		return ;
-	}
-	*a = build_stack(ac, av);
-	*b = NULL;
-	assign_index(a);
-}
-
-void	dispatch_sort(t_list **a, t_list **b, int size)
-{
-	if (is_sorted(*a))
-		return ;
-	if (size == 2)
-		sort_two(a);
-	else if (size == 3)
-		sort_three(a);
-	else if (size > 3 && size <= 5)
-		sort_five(a, b, 1);
-	else
-		radix_sort(a, b, size);
 }

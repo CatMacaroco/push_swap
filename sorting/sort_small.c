@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small_big.c                                   :+:      :+:    :+:   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 16:32:33 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:49:18 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	sort_three(t_list **lst)
 	int	second;
 	int	third;
 
-	if(is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
-		return;
+	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
+		return ;
 	first = (*lst)->data;
 	second = (*lst)->next->data;
 	third = (*lst)->next->next->data;
@@ -62,7 +62,7 @@ void	sort_three(t_list **lst)
 void	sort_five(t_list **a, t_list **b, int print)
 {
 	int	min_pos;
-	int rotations;
+	int	rotations;
 
 	if (is_sorted(*a) || lstsize(*a) < 4)
 		return ;

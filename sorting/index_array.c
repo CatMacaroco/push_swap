@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 13:13:46 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/02 17:48:47 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,17 @@ void	assign_index(t_list **a)
 	bubble_sort(array, size);
 	assign_indices(*a, array, size);
 	free(array);
+}
+
+void	init_stacks(t_list **a, t_list **b, int ac, char *av[])
+{
+	if (ac < 2)
+	{
+		*a = NULL;
+		*b = NULL;
+		return ;
+	}
+	*a = build_stack(ac, av);
+	*b = NULL;
+	assign_index(a);
 }
