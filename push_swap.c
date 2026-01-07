@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:12 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 19:01:31 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:33:05 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,19 @@ int	main(int ac, char *av[])
 	t_list	*a;
 	t_list	*b;
 	int		size;
+	int		i;
 
+	if (ac == 1)
+		return (0);
+	i = 1;
+	if (ac != 2)
+	{
+		while (i < ac)
+		{
+			check_error(av[i]);
+			i++;
+		}
+	}
 	init_stacks(&a, &b, ac, av);
 	if (!a)
 		return (0);

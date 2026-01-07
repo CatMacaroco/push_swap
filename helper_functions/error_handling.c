@@ -6,11 +6,22 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 15:00:53 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 17:30:19 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:19:00 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	is_sorted(t_list *head)
+{
+	while (head != NULL && head->next != NULL)
+	{
+		if (head->data > head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
 
 void	check_error(char *str)
 {
@@ -75,6 +86,6 @@ int	check_duplicate(t_list *head)
 
 void	ft_error(void)
 {
-	ft_putstr("Error\n");
+	write(2, "Error\n", 6);
 	exit (1);
 }

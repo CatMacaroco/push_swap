@@ -203,6 +203,9 @@ ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' ');
 - [Push_swap Tutorial - Medium](https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e)
 - [Understanding Radix Sort for Push_swap](https://medium.com/@ayogun/push-swap-c1f5d2d41e97)
 
+### Tutorials & Articles
+AI was used to understand concepts and explore the different algorithms, their limitations and benefits.
+
 ## Author
 
 **cmacaroc** - 42 Student

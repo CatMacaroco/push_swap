@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 18:33:56 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:54:25 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,26 @@ t_list	*handle_single_arg(char *av)
 {
 	char	**split;
 	t_list	*a;
+	int		i;
 
+	i = 0;
 	a = NULL;
 	split = ft_split(av, ' ');
+	while (split[i])
+	{
+		if (is_valid_number(split[i]) == 0)
+		{
+			i = 0;
+			while (split[i])
+			{
+				free(split[i]);
+				i++;
+			}
+			free(split);
+			ft_error();
+		}
+		i++;
+	}
 	parsing_split(split, &a);
 	return (a);
 }

@@ -6,7 +6,7 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:36:02 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 19:00:51 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:45:10 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,5 @@ int		main(int ac, char *av[]);
 void	init_stacks(t_list **a, t_list **b, int ac, char *av[]);
 void	sort_sort(t_list **a, t_list **b, int size);
 void	radix_sort(t_list **a, t_list **b, int size);
+int		is_valid_number(char *str);
 //void	printstack(t_list *a);

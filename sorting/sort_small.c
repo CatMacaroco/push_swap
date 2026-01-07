@@ -6,22 +6,11 @@
 /*   By: cmacaroc <cmacaroc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 18:55:17 by cmacaroc          #+#    #+#             */
-/*   Updated: 2026/01/02 18:56:28 by cmacaroc         ###   ########.fr       */
+/*   Updated: 2026/01/06 13:53:36 by cmacaroc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(t_list *head)
-{
-	while (head != NULL && head->next != NULL)
-	{
-		if (head->data > head->next->data)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
 
 void	sort_two(t_list **lst)
 {
@@ -30,17 +19,8 @@ void	sort_two(t_list **lst)
 	sa(lst, 1);
 }
 
-void	sort_three(t_list **lst)
+void	execute_sort_three(t_list **lst, int first, int second, int third)
 {
-	int	first;
-	int	second;
-	int	third;
-
-	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
-		return ;
-	first = (*lst)->data;
-	second = (*lst)->next->data;
-	third = (*lst)->next->next->data;
 	if (first > second && second > third)
 	{
 		sa(lst, 1);
@@ -58,6 +38,79 @@ void	sort_three(t_list **lst)
 		ra(lst, 1);
 	}
 }
+
+void	sort_three(t_list **lst)
+{
+	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
+		return ;
+	while (!is_sorted(*lst))
+		execute_sort_three(
+			lst,
+			(*lst)->data,
+			(*lst)->next->data,
+			(*lst)->next->next->data);
+}
+
+// void	sort_three(t_list **lst)
+// {
+// 	int	first;
+// 	int	second;
+// 	int	third;
+
+// 	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
+// 		return ;
+// 	while (!is_sorted(*lst))
+// 	{
+// 		first = (*lst)->data;
+// 		second = (*lst)->next->data;
+// 		third = (*lst)->next->next->data;
+// 		if (first > second && second > third)
+// 		{
+// 			sa(lst, 1);
+// 			rra(lst, 1);
+// 		}
+// 		else if (first > second && first > third)
+// 			ra(lst, 1);
+// 		else if (second > first && second > third)
+// 			rra(lst, 1);
+// 		else if (first > second)
+// 			sa(lst, 1);
+// 		else
+// 		{
+// 			sa(lst, 1);
+// 			ra(lst, 1);
+// 		}
+// 	}
+// }
+
+// void	sort_three(t_list **lst)
+// {
+// 	int	first;
+// 	int	second;
+// 	int	third;
+
+// 	if (is_sorted(*lst) || !*lst || !(*lst)->next || !(*lst)->next->next)
+// 		return ;
+// 	first = (*lst)->data;
+// 	second = (*lst)->next->data;
+// 	third = (*lst)->next->next->data;
+// 	if (first > second && second < third && first < third)
+// 		sa(lst, 1);
+// 	else if (first > second && second > third)
+// 	{
+// 		sa(lst, 1);
+// 		rra(lst, 1);
+// 	}
+// 	else if (first > second && second < third && first > third)
+// 		ra(lst, 1);
+// 	else if (first < second && second > third && first < third)
+// 	{
+// 		sa(lst, 1);
+// 		ra(lst, 1);
+// 	}
+// 	else if (first < second && second > third && first > third)
+// 		rra(lst, 1);
+// }
 
 void	sort_five(t_list **a, t_list **b, int print)
 {
